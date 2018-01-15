@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="envio de email">
+    <title>Ejemplo</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+   
+</head>
+
+<body>
+  <h2 class="content-head is-center">Envío de Email</h2>
+  <form id="gform" method="POST" class="pure-form pure-form-stacked" data-email="isabel1625.luna@gmail.com"
+  action="https://script.google.com/macros/s/AKfycbxTHEjv_hb6z-4Ef7W-qbTHOPLE1qXwEq8JyzUZFi-xd7bYBa0/exec">
+
+    <fieldset class="pure-group">
+      <label for="name">Nombre Completo: </label>
+      <input id="name" name="name" placeholder="nombre completo" />
+    </fieldset>
+
+    <fieldset class="pure-group">
+      <label for="message">Mensaje: </label>
+      <textarea id="message" name="message" rows="10"
+      placeholder="dinos algo "></textarea>
+    </fieldset>
+
+    <fieldset class="pure-group">
+      <label for="email"><em>Tu</em> Email </label>
+      <input id="email" name="email" type="email" value=""
+      required placeholder="tu.nombre@email.com"/>
+      <span id="email-invalid" style="display:none">
+        Dirección no válida</span>
+    </fieldset>
+
+    <button class="button-success pure-button button-xlarge">
+      <i class="fa fa-paper-plane"></i>&nbsp;Enviar</button>
+
+  </form>
+
+  <div style="display:none;" id="thankyou_message">
+    <h2><em>Gracias</em> Nos pondremos en contacto contigo.</h2>
+  </div>
+
+  <script data-cfasync="false" type="text/javascript" src="validacion.js"></script>
+
+</body>
+</html>

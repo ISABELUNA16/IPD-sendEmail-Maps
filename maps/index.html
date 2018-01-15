@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GOOGLE MAPS IPD </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>	
+	<h1>Mapa</h1>
+	<div class="row">
+		<div class="col-sm-2">
+			<p>DEPARTAMENTO</p>
+		 	<select name="departamento" id="departamento">
+		    	<option value="d1">LIMA</option>
+		    	<option value="d2">HUANCAVELICA</option>
+		    	<option value="d3">CAJAMARCA</option>
+		    	<option value="d4">CUSCO</option>
+		  	</select>
+		</div>
+		<div class="col-sm-2">
+			<p>PROVINCIA</p>
+		 	<select name="provincia" id="provincia">
+		    	<option value="p1">LIMA</option>
+		    	<option value="p2">CALLAO</option>
+		    	<option value="p3">HUANCAYO</option>
+		  	</select>
+		</div>
+		<div class="col-sm-2">
+			<p>DISTRITO</p>
+		 	<select name="distrito" id="distrito">
+		    	<option value="dis1">SAN JUAN DE LURIGANCHO</option>
+		    	<option value="dis2">EL AGUSTINO</option>
+		    	<option value="dis3">LOS OLIVOS</option>
+		    	<option value="dis4">SAN BORJA</option>
+		    	<option value="dis5">LA VICTORIA</option>
+		  	</select>
+		</div>
+		<div class="col-sm-2">
+			<p>COMPLEJO</p>
+		 	<select name="complejo" id="complejo">
+		    	<option value="c1">IPD COMPLEJO DEPORTIVO CANTO GRANDE</option>
+		    	<option value="c2">IPD COMPLEJO DEPORTIVO LOS OLIVOS</option>
+		    	<option value="c3">IPD COMPLEJO DEPORTIVO COLISEO DIBOS</option>
+		    	<option value="c4">IPD COMPLEJO DEPORTIVO OSCAR R. BENAVIDES</option>
+		    	<option value="c5">IPD COMPLEJO DEPORTIVO MATUTE</option>
+		    	<option value="c6">IPD COMPLEJO DEPORTIVO CARABAYLLO</option>
+		    	<option value="c7">IPD COMPLEJO DEPORTIVO SANTA ANITA</option>
+		  	</select>
+		</div>
+		<br>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<br>
+			<iframe  id="iframe_lugar" class= "well well-sm col-xs-12 col-sm-8" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q='Peru%20lima'&key=AIzaSyDv9gTXqhO_IlpmDDEpVyE2DHpYcsVKp80" allowfullscreen></iframe>
+		</div>
+
+		<!--<input type="radio" name="gender"  class="distrito" value="agustino" checked> El agustino<br>
+		<input type="radio" name="gender"  class="distrito" value="matute" checked> Matute<br>
+ 	    <input type="radio" name="gender" class="distrito"  value="sanjuan"> San Juan Lurigancho<br>-->
+ 	</div>
+
+	<script type="text/javascript">     
+	
+		var complejo = document.getElementById('complejo');
+
+		complejo.addEventListener('change',
+			function(){
+				var selectedOption = this.options[complejo.selectedIndex];
+				
+				var departamento = document.getElementById('departamento');	
+				var provincia = document.getElementById('provincia');
+				var distrito = document.getElementById('distrito');
+
+				var depa = departamento.options[departamento.selectedIndex].text;
+				var prov = provincia.options[provincia.selectedIndex].text;
+				var dist = distrito.options[distrito.selectedIndex].text;
+
+				var direccion = depa+' '+prov+' '+dist+' '+ selectedOption.text;
+
+				var search = "https://www.google.com/maps/embed/v1/search?q='peru%20"+direccion+"'&key=AIzaSyDv9gTXqhO_IlpmDDEpVyE2DHpYcsVKp80";
+				
+				$("#iframe_lugar").attr('src',search);
+			});
+		
+		/*var lugares = {
+
+			"agustino":"https://www.google.com/maps/embed/v1/search?q='El+Agustino,+Gobierno+Regional+de+Lima,+Perú'&key=AIzaSyDv9gTXqhO_IlpmDDEpVyE2DHpYcsVKp80",
+			"sanjuan": "https://www.google.com/maps/embed/v1/search?q='san%20borja'&key=AIzaSyDv9gTXqhO_IlpmDDEpVyE2DHpYcsVKp80",
+			"matute": "https://www.google.com/maps/embed/v1/search?q='complejo%20deportivo%20ipd%20matute'&key=AIzaSyDv9gTXqhO_IlpmDDEpVyE2DHpYcsVKp80"
+		}
+
+		$(".distrito").on('click',function(){
+
+			$("#iframe_lugar").attr('src',lugares[$(this).val()]);
+
+		});*/
+
+
+	</script>
+</body>
+</html>
